@@ -1,58 +1,44 @@
-function Todo(id, task) {
-    this.id = id;
-    this.task = task;
-}
+const list = document.querySelector('#My-UL');
+const input = document.querySelector(".add__description");
 
-var newArray = {
-    listArray: [],
-    deleteArray: []
-};
-
-function createItem() {
+function mainContent()  {
     document.querySelector(".add__btn").addEventListener("click", function() {
-        // Create paragraph
-        var createP, text, textnode, ID;
-        createP = document.createElement("p");
-        createP.className = "list-items";
-        createP.id = newArray.listArray.push(createP);
-        text = document.querySelector(".add__description").value;
-        textnode = document.createTextNode(text);
-        createP.appendChild(textnode);
-        document.getElementById("My-UL").appendChild(createP);
+        var createP, text, textnode;
+        list.innerHTML = '<li>' + input.value + '</li>';
 
-        // Create Delete button
-        var delButton = document.createElement("button");
-        delButton.className = "delete-button";
-        delButton.id = newArray.deleteArray.push(delButton);
-        var delBtnData = document.createTextNode("delete");
-        delButton.appendChild(delBtnData);
-        document.getElementById("My-UL").appendChild(delButton);
-        delButton.addEventListener(
-            "click",
-            function() {
-                createP.parentNode.removeChild(createP);
-            },
-            false
+        list.addEventListener("click", function(e) {
+                let t = e.target;
+                if (t.classList.contains('checked')){
+                    t.parentNode.removeChild(t)
+                }else {
+                    t.classList.add('checked')
+                }
+            }
         );
-        createP.appendChild(delButton);
         // createLI.ID = newArray.listArray[newArray.listArray.length + 1];
         if (text === "") {
             alert("Please enter something");
         }
     });
 }
+document.querySelector('body').addEventListener('DOMContentLoaded', mainContent())
 
-// function deleteButton() {
-//     document.querySelector(".add__btn").addEventListener("click", function() {
-//         var delButton = document.createElement("button");
-//         delButton.className = "delete-button";
-//         delButton.id = newArray.deleteArray.push(delButton);
-//         var delBtnData = document.createTextNode("delete");
-//         delButton.appendChild(delBtnData);
-//         document.getElementById("My-UL").appendChild(delButton);
-//     });
-// }
 
-createItem();
-// deleteButton();
-console.log("error check");
+
+        // OLD CONTENT BELOW
+
+        // createP = document.createElement("p");
+        // createP.className = "list-items";
+        // createP.id = newArray.listArray.push(createP);
+        // text = document.querySelector(".add__description").value;
+        // textnode = document.createTextNode(text);
+        // createP.appendChild(textnode);
+        // document.getElementById("My-UL").appendChild(createP);
+
+        // Create Delete button
+        // var delButton = document.querySelector(".delete-button");
+        // delButton.className = "delete-button";
+        // delButton.id = newArray.deleteArray.push(delButton);
+        // var delBtnData = document.createTextNode("delete");
+        // delButton.appendChild(delBtnData);
+        // document.getElementById("My-UL").appendChild(delButton);
