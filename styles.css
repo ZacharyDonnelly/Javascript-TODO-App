@@ -1,5 +1,11 @@
+body {
+    margin: 0;
+}
+
+
+
 .title {
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Abril Fatface', cursive;
     font-size: 35px;
     text-align: center;
     margin-bottom: 10px;
@@ -17,12 +23,13 @@
 }
 
 .add {
-    padding: 14px;
+
     border-bottom: 1px solid #e7e7e7;
     background-color: #f7f7f7;
 }
 
 .add__container {
+    padding: 10px;
     margin: 0 auto;
     text-align: center;
 }
@@ -73,16 +80,42 @@
 }
 
 #My-UL {
-    margin-left: 50px;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Raleway', sans-serif;
     text-decoration: none;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
+    line-height: 2.5em;
+    list-style: none;
+    height: 350px;
+    background: #f2eee5;
+    padding: 15px 0 10px 30px;
+    margin: 0;
+}
+
+li {
+    border: 1px solid aliceblue;
+    width: 20%;
+    text-align: center;
     font-size: 20px;
     line-height: 2em;
+    color: green;
+    font-family: 'Raleway', sans-serif;
 }
 
 
 .checked {
-    color: blueviolet;
+    color: tomato;
+}
+
+.footer {
+    display: block;
+    height: 100px;
+    flex-direction: row;
+    background: #be7575;
+    padding: 10px 10px 35px 10px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 20px;
+    font-family: 'Raleway', sans-serif;
 }

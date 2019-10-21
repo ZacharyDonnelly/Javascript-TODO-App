@@ -1,16 +1,20 @@
 const list = document.querySelector('#My-UL');
 const input = document.querySelector(".add__description");
+const foot = document.querySelector(".footer");
+const dated = new Date().toLocaleString();
+
 
 (function()  {
     document.querySelector(".add__btn").addEventListener("click", function(e) {
         e.preventDefault();
-        list.innerHTML += '<li>' + input.value + '</li>';
+        list.innerHTML += '<li>- ' + input.value + '</li>';
         store();
-        if (input.value === "") {
-            alert("Please enter something");
-        }
         input.value = "";
+        // if (input.value === "") {
+        //     alert("Please enter something");
+        // }
     },false);
+   
     list.addEventListener("click", function(e) {
         let t = e.target;
         if (t.classList.contains('checked')){
@@ -28,35 +32,11 @@ const input = document.querySelector(".add__description");
      function getValues() { 
          let storedValue = window.localStorage.myItems;
          if(!storedValue){
-             list.innerHTML = '<li>Welcome to my todo list!</li>' + '<li>In order to delete an item</li>' + '<li>Just double click the item you would like to delete!</li>';
+             list.innerHTML = '<li>- Welcome to my todo list!</li>' + '<li>- In order to delete an item</li>' + '<li>- Just double click the item you would like to delete!</li>';
          }else {
               list.innerHTML = storedValue;
          }
       }
       getValues();
-
-
-
-
+      foot.textContent = dated;
 })();
-// document.querySelector('body').addEventListener('DOMContentLoaded', mainContent())
-
-
-
-        // OLD CONTENT BELOW
-
-        // createP = document.createElement("p");
-        // createP.className = "list-items";
-        // createP.id = newArray.listArray.push(createP);
-        // text = document.querySelector(".add__description").value;
-        // textnode = document.createTextNode(text);
-        // createP.appendChild(textnode);
-        // document.getElementById("My-UL").appendChild(createP);
-
-        // Create Delete button
-        // var delButton = document.querySelector(".delete-button");
-        // delButton.className = "delete-button";
-        // delButton.id = newArray.deleteArray.push(delButton);
-        // var delBtnData = document.createTextNode("delete");
-        // delButton.appendChild(delBtnData);
-        // document.getElementById("My-UL").appendChild(delButton);
